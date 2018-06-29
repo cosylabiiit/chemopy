@@ -44,7 +44,7 @@ def CalculateKappa1(mol):
     #################################################################
     """
     P1=mol.GetNumBonds(onlyHeavy=1)
-    A=mol.GetNumAtoms(onlyHeavy=1)
+    A=mol.GetNumHeavyAtoms()(onlyHeavy=1)
     denom=P1+0.0
     if denom:
         kappa=(A)*(A-1)**2/denom**2
@@ -70,7 +70,7 @@ def CalculateKappa2(mol):
     #################################################################
     """
     P2=len(Chem.FindAllPathsOfLengthN(mol,2))
-    A=mol.GetNumAtoms(onlyHeavy=1)
+    A=mol.GetNumHeavyAtoms()
 
     denom=P2+0.0
     if denom:
@@ -97,7 +97,7 @@ def CalculateKappa3(mol):
     #################################################################
     """
     P3=len(Chem.FindAllPathsOfLengthN(mol,3))
-    A=mol.GetNumAtoms(onlyHeavy=1)
+    A=mol.GetNumHeavyAtoms()
 
     denom=P3+0.0
     if denom:
@@ -158,7 +158,7 @@ def CalculateKappaAlapha1(mol):
     #################################################################
     """
     P1=mol.GetNumBonds(onlyHeavy=1)
-    A=mol.GetNumAtoms(onlyHeavy=1)
+    A=mol.GetNumHeavyAtoms()
     alpha=_HallKierAlpha(mol)
     denom=P1+alpha
     if denom:
@@ -187,7 +187,7 @@ def CalculateKappaAlapha2(mol):
     #################################################################
     """
     P2=len(Chem.FindAllPathsOfLengthN(mol,2))
-    A=mol.GetNumAtoms(onlyHeavy=1)
+    A=mol.GetNumHeavyAtoms()
     alpha=_HallKierAlpha(mol)
     denom=P2+alpha
     if denom:
@@ -216,7 +216,7 @@ def CalculateKappaAlapha3(mol):
     #################################################################
     """
     P3=len(Chem.FindAllPathsOfLengthN(mol,3))
-    A=mol.GetNumAtoms(onlyHeavy=1)
+    A=mol.GetNumHeavyAtoms()
     alpha=_HallKierAlpha(mol)
     denom=P3+alpha
     if denom:
@@ -248,7 +248,7 @@ def CalculateFlexibility(mol):
     """
     kappa1=CalculateKappaAlapha1(mol)
     kappa2=CalculateKappaAlapha2(mol)
-    A=mol.GetNumAtoms(onlyHeavy=1)
+    A= mol.GetNumHeavyAtoms()
     phi=kappa1*kappa2/(A+0.0)
     
     return round(phi,3)
