@@ -175,7 +175,7 @@ def CalculateHydrophilicityFactor(mol):
         Output: result is a numeric value.
     #################################################################
     """
-    nheavy=mol.GetNumAtoms(onlyHeavy=1)
+    nheavy= mol.GetNumHeavyAtoms()
     nc=0
     for atom in mol.GetAtoms():
         if atom.GetAtomicNum()==6:
