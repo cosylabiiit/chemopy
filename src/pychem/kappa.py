@@ -44,7 +44,7 @@ def CalculateKappa1(mol):
     #################################################################
     """
     P1=mol.GetNumBonds(onlyHeavy=1)
-    A=mol.GetNumHeavyAtoms()(onlyHeavy=1)
+    A=mol.GetNumHeavyAtoms()
     denom=P1+0.0
     if denom:
         kappa=(A)*(A-1)**2/denom**2
